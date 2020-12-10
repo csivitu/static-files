@@ -11,5 +11,6 @@ jobs:
     - uses: actions/checkout@v2
     - name: push to gh-pages
       run: |
+        tree files -H https://static.csivit.com/ -o files index.html
         git push origin --delete gh-pages || :
         git subtree push --prefix files origin gh-pages
