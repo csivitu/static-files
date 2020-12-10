@@ -17,4 +17,4 @@ jobs:
         git config user.name csivitu
         git add files/index.html
         git commit --amend --no-edit
-        git push origin `git subtree split --prefix files master`:gh-pages --force
+        git push origin `git subtree split --prefix files master`:gh-pages --force ||  git subtree push --prefix files origin gh-pages
