@@ -8,16 +8,14 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      HOMEPAGE: https://static.csivit.com
     steps:
     - uses: actions/checkout@v2
     - name: push to gh-pages
       run: |
         sudo apt update
         sudo apt install -y tree
-        tree files -H $HOMEPAGE -o files/index.html
+        tree files -H . -o files/index.html
         git config user.name csivitu
         git add files/index.html
-        git commit -m "updated index.html"
-        git push origin --delete gh-pages || :
-        git subtree push --prefix files origin gh-pages
+        git commit --amend --no-edit
+        git push origin `git subtree split --prefix files master`:gh-pages --force
