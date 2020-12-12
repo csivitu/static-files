@@ -15,8 +15,8 @@ jobs:
       run: |
         sudo apt update
         sudo apt install -y tree
-        tree files -H . -o files/index.html
+        tree $FOLDER_NAME -H . -o $FOLDER_NAME/index.html
         git config user.name csivitu
-        git add files/index.html
+        git add $FOLDER_NAME/index.html
         git commit --amend --no-edit
         git push origin `git subtree split --prefix $FOLDER_NAME master`:gh-pages --force ||  git subtree push --prefix $FOLDER_NAME origin gh-pages
